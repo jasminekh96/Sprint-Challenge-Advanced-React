@@ -1,7 +1,18 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
+import Navbar from './components/Navbar';
+import styled from 'styled-components';
 
+const Container = styled.div`font-size: 1.5rem;`;
+const Name = styled.h1`
+	text-align: center;
+	padding: 10px;
+	color: #9370db;
+	font-weight: bold;
+`;
+const Country = styled.h2`text-align: center;`;
+const Searches = styled.p`text-align: center;`;
 class App extends React.Component {
 	state = {
 		players : [],
@@ -23,15 +34,16 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<Container>
+				<Navbar />
 				{this.state.players.map((player) => (
 					<div key={player.id}>
-						<h2>{player.name}</h2>
-						<h3>{player.country}</h3>
-						<p>{player.searches}</p>
+						<Name>Name: {player.name}</Name>
+						<Country>Country: {player.country}</Country>
+						<Searches>Searches: {player.searches}</Searches>
 					</div>
 				))}
-			</div>
+			</Container>
 		);
 	}
 }
