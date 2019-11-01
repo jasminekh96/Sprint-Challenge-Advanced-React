@@ -14,7 +14,7 @@ const Name = styled.h1`
 const Country = styled.h2`text-align: center;`;
 const Searches = styled.p`text-align: center;`;
 class App extends React.Component {
-	_isMounted = false;
+	// _isMounted = false;
 
 	state = {
 		players : [],
