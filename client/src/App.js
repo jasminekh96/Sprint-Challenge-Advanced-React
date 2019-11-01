@@ -14,14 +14,18 @@ const Name = styled.h1`
 const Country = styled.h2`text-align: center;`;
 const Searches = styled.p`text-align: center;`;
 class App extends React.Component {
+	_isMounted = false;
+
 	state = {
 		players : [],
 	};
 
 	componentDidMount() {
+		// this._isMounted = true;
 		axios
 			.get('http://localhost:5000/api/players')
 			.then((res) => {
+				// if (this._isMounted)
 				this.setState({
 					players : res.data,
 				});
@@ -31,6 +35,9 @@ class App extends React.Component {
 				console.log(err);
 			});
 	}
+	// componentWillMount() {
+	// 	this._isMounted = false;
+	// }
 
 	render() {
 		return (
